@@ -7,7 +7,7 @@ include(pico_sdk_import.cmake)
 
 project(122-led-button C CXX ASM)
 
-pico_sdk_init()
+pico_sdk_init(122-led-button)
 
 add_executable(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/main.c
