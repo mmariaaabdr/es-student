@@ -3,6 +3,8 @@
 #include "led.h"
 #include "log.h"
 #include "device.h"
+#include "memory.h"
+#include "command.h"
 #include <string.h>
 
 #define LINE_SIZE 32
@@ -12,30 +14,83 @@ uint line_length = 0;
 const uint BUTTON_PIN = 15;
 const uint DEBOUNCE_MS = 20;
 
+void cmd_enable(void)
+{
+    led_set(true);
+    LOG_INF("led %s\n", led_is_on() ? "on" : "off");
+}
+
+void cmd_disable(void)
+{
+    led_set(false);
+    LOG_INF("led %s\n", led_is_on() ? "on" : "off");
+}
+
+void cmd_info(void)
+{
+    device_info();
+}
+
+void cmd_version(void)
+{
+    log_version();
+}
+
+void cmd_ping(void)
+{
+    printf("pong\n");
+}
+
+void cmd_mem_info(void)
+{
+    mem_info();
+}
+
+void cmd_fw_info(void)
+{
+    fw_info();
+}
+
+void cmd_dev_info(void)
+{
+    dev_info();
+}
+
+void cmd_boot_info(void)
+{
+    boot_info();
+}
+
+const struct command_t commands[] = {
+    { "enable", cmd_enable },
+    { "disable", cmd_disable },
+    { "info", cmd_info },
+    { "version", cmd_version },
+    { "ping", cmd_ping },
+    { "mem_info", cmd_mem_info },
+    { "fw_info", cmd_fw_info },
+    { "dev_info", cmd_dev_info },
+    { "boot_info", cmd_boot_info },
+};
+
+const uint command_count = sizeof(commands) / sizeof(commands[0]);
+
 void handle_command(const char *command)
 {
-    if (strcmp(command, "enable") == 0)
+    for (uint i = 0; i < command_count; i++)
     {
-        led_set(true);
-        LOG_INF("led %s\n", led_is_on() ? "on" : "off");
+        if (strcmp(command, commands[i].name) == 0)
+        {
+            if (commands[i].handler != NULL)
+            {
+                commands[i].handler();
+            }
+
+            return;
+        }
     }
-    else if (strcmp(command, "disable") == 0)
-    {
-        led_set(false);
-        LOG_INF("led %s\n", led_is_on() ? "on" : "off");
-    }
-    else if (strcmp(command, "info") == 0)
-    {
-        device_info();
-    }
-    else if (strcmp(command, "version") == 0)
-    {
-        log_version();
-    }
-    else
-    {
-        LOG_ERR("unknown command: %s\n", command);
-    }
+
+    LOG_ERR("unknown command: %s\n", command);
 }
 
 void read_line(void)

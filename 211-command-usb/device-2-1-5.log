@@ -1,0 +1,16 @@
+задание: 2.1.5
+проект: 211-command-usb
+устройство: 2e8a:000a
+серийный номер: E66098F29B56BD32
+порт: COM14
+начало: 2026-10-08T18:19:09
+   0.000 --> dev_info
+   0.177 <-- dev_info
+   0.177 <-- dbg read_line:112 got dev_info
+   0.177 <-- struct          address     size offset value
+   0.177 <-- device_card     0x20000f40    20
+   0.178 <-- - version       0x20000f40     4      0 0x00010000
+   0.178 <-- - name          0x20000f44    13      4 es-cmd-usb
+   0.179 <-- - revision      0x20000f51     1     17 2
+   0.179 <-- fields 18, sizeof 20, padding 2
+итог: отправлено команд 1, принято строк 8
