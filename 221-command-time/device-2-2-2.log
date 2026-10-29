@@ -1,0 +1,63 @@
+задание: 2.2.2
+проект: 221-command-time
+устройство: 2e8a:000a
+серийный номер: E66098F29B344239
+порт: COM12
+начало: 2026-10-29T16:18:52
+   0.000 --> uptime
+   0.001 <-- uptime
+   0.003 <-- dbg read_line:169 got uptime
+   0.005 <-- uptime: 89136 ms
+   0.444 --> boot_info
+   0.446 <-- boot_info
+   0.448 <-- dbg read_line:169 got boot_info
+   0.450 <-- vector table   0x10000100
+   0.451 <-- stack top    0x20042000
+   0.453 <-- reset        0x100001f7
+   0.455 <-- reset (even) 0x100001f6
+   0.458 <-- gpio in        0xd0000004
+   0.462 <-- led bit      1
+   0.463 <-- gpio_get     1
+   0.895 --> uptime
+   0.897 <-- uptime
+   0.899 <-- dbg read_line:169 got uptime
+   0.900 <-- uptime: 90032 ms
+   1.327 --> boot_info
+   1.330 <-- boot_info
+   1.332 <-- dbg read_line:169 got boot_info
+   1.334 <-- vector table   0x10000100
+   1.336 <-- stack top    0x20042000
+   1.338 <-- reset        0x100001f7
+   1.340 <-- reset (even) 0x100001f6
+   1.343 <-- gpio in        0xd0000004
+   1.346 <-- led bit      0
+   1.348 <-- gpio_get     0
+   1.776 --> uptime
+   1.778 <-- uptime
+   1.780 <-- dbg read_line:169 got uptime
+   1.782 <-- uptime: 90912 ms
+   2.210 --> boot_info
+   2.212 <-- boot_info
+   2.214 <-- dbg read_line:169 got boot_info
+   2.216 <-- vector table   0x10000100
+   2.218 <-- stack top    0x20042000
+   2.220 <-- reset        0x100001f7
+   2.221 <-- reset (even) 0x100001f6
+   2.223 <-- gpio in        0xd0000004
+   2.224 <-- led bit      0
+   2.226 <-- gpio_get     0
+   2.663 --> uptime
+   2.664 <-- uptime
+   2.666 <-- dbg read_line:169 got uptime
+   2.667 <-- uptime: 91799 ms
+   3.101 --> boot_info
+   3.102 <-- boot_info
+   3.103 <-- dbg read_line:169 got boot_info
+   3.104 <-- vector table   0x10000100
+   3.105 <-- stack top    0x20042000
+   3.106 <-- reset        0x100001f7
+   3.107 <-- reset (even) 0x100001f6
+   3.108 <-- gpio in        0xd0000004
+   3.109 <-- led bit      0
+   3.109 <-- gpio_get     0
+итог: отправлено команд 8, принято строк 48
